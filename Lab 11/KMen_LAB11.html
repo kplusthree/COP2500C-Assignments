@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #8 -->
+<!-- Kortney Menefee -->
+<!-- 4/02/19 -->
+<title>Lab 8 Assignment</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Problem 1</h1>
+<script>
+
+/*
+1) Establish variables needed for program (2 arrays for price and quantity as well as a constant tax)
+2) Create a for loop to enter user data
+3) Enter user data
+4) multiply price by quanity
+5) Inside of for loop display item total
+6) Outside of for loop add tax
+7) Add everything together and display to webpage
+*/
+
+var i;
+var itemPrice = new Array(3);
+var itemAmount = new Array(3);
+var itemTotal = 0;
+var subtotal = 0;
+const TAX = .05;
+var total = 0;
+
+for(i=0; i<3; i++)
+{
+	itemPrice[i] = parseFloat(prompt("Please enter a price:", ""));
+	itemAmount[i] = parseFloat(prompt("Please enter an amount for items at that price:", ""));
+	itemTotal = itemPrice[i] * itemAmount[i];
+	subtotal += itemTotal;
+
+	document.write("The total for item " + (i+1) + " is: $" + itemTotal.toFixed(2) + "<br />");
+}
+
+total = subtotal + (subtotal*TAX);
+
+document.write("Subtotal is: $" + subtotal.toFixed(2) + "<br />");
+document.write("Tax is: $" + (subtotal*TAX).toFixed(2) + "<br />");
+document.write("Final total is: $" + total.toFixed(2) + "<br />");
+
+</script>
+<h1>Problem 2</h1>
+<script>
+
+/*
+1) Establish variables needed for program (Use provided secret_number variable)
+2) Create do while to give alerts when user isn't guessing the correct number
+3) If else's state whether guess was too high or too low
+4) If user guesses correctly, display congratulations
+5) As an added bonus, createa counter to count number of guesses
+6) Every time the user inputs a guess, add one to the counter
+7) Display number of guesses at the end
+*/
+
+var secret_number = Math.floor(Math.random() * 10);
+var guess;
+var numberOfGuesses = 0;
+
+do
+{
+	guess = parseFloat(prompt("Please enter a number:", ""));
+
+	if(guess == secret_number)
+	{
+		document.write("Congratulations. You guessed the number!")
+	}
+	else if(guess > secret_number)
+	{
+		window.alert("Too High. Try Again");
+	}
+	else if(guess < secret_number)
+	{
+		window.alert("Too Low. Try Again");
+	}
+
+	numberOfGuesses++;
+}
+while(guess != secret_number);
+
+document.write("<br />You got it in " + numberOfGuesses + " guesses!");
+
+</script>
+</body>
+</html>

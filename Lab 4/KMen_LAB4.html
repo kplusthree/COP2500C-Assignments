@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #4 -->
+<!-- Kortney Menefee -->
+<!-- 2/18/19 -->
+<title>Lab 4 Assignment</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Problem 1</h1>
+<script>
+/*
+Use for loops to establish 7 descending "#".
+1) to establish 7 rows
+2) to establish columns & non breaking spaces
+3) to write the correct amount of "#" in both rows and columns
+*/
+
+	var i;
+	var j;
+	for(i = 0; i < 8; i++)
+	{
+		document.write("</br>");
+
+		for(j = 7; j < 7-i; j++)
+		{
+			document.write("&nbsp&nbsp");
+		}
+
+		for(j = 6-i; j < 6; j++)
+		{
+			document.write("#");
+		}
+	}
+</script>
+<h1>Problem 2</h1>
+<script>
+/*
+1) Use a do while to count to 100 starting from 1
+2) Use 3 if statements to see if each number is divisible by 3, 5, or neither
+3) Print Fizz for 3, Buzz for 5, and the number for everything else
+*/
+	var i = 1;
+	do
+	{
+		if(i % 3 == 0)
+		{
+			document.write("Fizz" + "<br />");
+		}
+		if(i % 5 == 0)
+		{
+			document.write("Buzz" + "<br />");
+		}
+		if(i % 3 != 0 && i % 5 != 0)
+		{
+			document.write(i + "<br />");
+		}
+		i++;
+	}
+	while (i < 101);
+</script>
+<h1>Problem 3</h1>
+<script>
+/*
+1) Do the same as the last problem
+2) make a new if statement for if the number is divisible by both 3 and 5
+*/
+	var i = 1;
+	do
+	{
+		if(i % 3 == 0 && i % 5 == 0)
+		{
+			document.write("FizzBuzz" + "<br />");
+		}
+		else if(i % 3 == 0)
+		{
+			document.write("Fizz" + "<br />");
+		}
+		else if(i % 5 == 0)
+		{
+			document.write("Buzz" + "<br />");
+		}
+		else
+		{
+			document.write(i + "<br />");
+		}
+		i++;
+	}
+	while (i < 101);
+</script>
+<h1>Problem 4</h1>
+<script>
+/*
+1) prompt user for sixe (remember to divide by 2 to flip flop symbols)
+2) create a for loop to create rows and columns and another loop for when the symbols filp
+3) make loops write "#" and empty spaces
+*/
+	var space = "&nbsp", hash = "#";
+	var size = parseInt(prompt("how many rows do you want in your grid?", ""));
+
+	for (var rows = 1; rows <= size; rows++)
+	{
+
+		var swap = rows % 2;
+		if (swap == 0)
+		{
+			for (var column = 0; column <= size; column++)
+			{
+
+				document.write(hash + space);
+			}
+
+		} 
+		else
+		{
+
+			for (var column = 0; column <= size ; column++)
+			{
+
+				document.write(space + hash);
+			}
+
+		}
+
+		document.write("<br />");
+
+	}
+</script>
+</body>
+</html>

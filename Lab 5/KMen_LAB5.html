@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #5 -->
+<!-- Kortney Menefee -->
+<!-- 2/25/19 -->
+<title>Lab 5 Assignment</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Problem 1</h1>
+<script>
+/*
+create function to display messsage
+prompt user for name
+input user input into function
+*/
+
+function greet(name)
+{
+	var name;
+	document.write("Hello " + name + "!");
+}
+
+var whatsYourName = prompt("What is your name?", "");
+greet(whatsYourName);
+</script>
+<h1>Problem 2</h1>
+<script>
+/*
+create functions that multiply, add and square a number
+create a function to preform the quadratic equation by calling on the other functions
+ask for user input
+display answer
+*/
+
+function multiply(n, m)
+{
+	var n, m;
+	return (n * m);
+}
+
+function add(n, m)
+{
+	var n, m;
+	return (n + m);
+}
+
+function square(n)
+{
+	var n;
+	return multiply(n, n);
+}
+
+function calculate_quadratic(a, b, c, x)
+{
+	//a*x^2 + b*x + c
+	var a, b, c, x;
+	return (add(add(multiply(a, square(x)), multiply(b, x)), c));
+}
+
+var a = parseInt(prompt("Please enter an a value:", ""));
+var b = parseInt(prompt("Please enter a b value:", ""));
+var c = parseInt(prompt("Please enter a c value:", ""));
+var x = parseInt(prompt("Please enter an x value:", ""));
+
+document.write("The answer is " + calculate_quadratic(a, b, c, x));
+</script>
+<h1>Problem 3</h1>
+<script>
+/*
+ask user for bill and tip percentage
+create a function that calculates the tip based on user input
+display bill, tip, and total
+*/
+
+function tip(bill, tip)
+{
+	var bill, tip;
+	return (bill * tip);
+}
+
+var bill = parseFloat(prompt("Please enter the amount of your bill", ""));
+var tipPercentage = parseFloat(prompt("Please enter the amount you'd like to tip in decimal form (ie 20% is .20)", ""));
+
+document.write("Your bill is: $" + bill);
+document.write("<br />Your tip is: $" + tip(bill, tipPercentage));
+document.write("<br />Your total is: $" + (bill + tip(bill, tipPercentage)));
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Problem</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Problem</h1>
+<script>
+function subtract(first, second)
+{
+	var first;
+	var second;
+	if(first>=second)
+	{
+
+		return (first - second);
+	}
+	else
+	{
+		return (second - first);
+	}
+}
+var numberOne = parseInt(prompt("Please enter your first value:", ""));
+var numberTwo = parseInt(prompt("Please enter your second value:", ""));
+document.write(subtract(numberOne, numberTwo));
+</script>
+</body>
+</html>

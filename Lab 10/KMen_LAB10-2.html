@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #10 -->
+<!-- Kortney Menefee -->
+<!-- 4/19/19 -->
+<title>Problem 2</title>
+<meta charset="UTF-8">
+<!-- styles for each selection and the table -->
+<style>
+#entree {
+	background-color: crimson;
+}
+#sidedish {
+	background-color: limegreen;
+}
+#dessert {
+	background-color: violet;
+}
+#supplies {
+	background-color: coral;
+}
+th { 
+	background-color: gold;
+}
+#r1 {
+	background-color: silver;
+}
+</style>
+<script type="text/javascript">
+
+// sets everything to nothing to start with
+function colorBlock(y) {
+    var x = document.getElementById(y);
+    entree.style.display = "none"
+    sidedish.style.display = "none"
+    dessert.style.display = "none"
+    supplies.style.display = "none"
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+//puts data in table
+function writeToF(x){
+var item1, item2;
+
+if (x == 'entree') {
+item1 = foodcollection.food1.value;
+item2 = foodcollection.servings1.value;
+}
+else if (x == 'sidedish'){
+item1 = foodcollection.food2.value;
+item2 = foodcollection.servings2.value;
+}
+else if (x == 'dessert'){
+item1 = foodcollection.food3.value;
+item2 = foodcollection.servings3.value;
+}
+else{
+item1 = foodcollection.food4.value;
+item2 = foodcollection.servings4.value;
+}
+var name = foodcollection.yourName.value;
+var item3 = x;
+
+var fTable = document.getElementById("foodTable");
+var row = fTable.insertRow(-1);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+cell1.innerHTML = name;
+cell2.innerHTML = item1;
+cell3.innerHTML = item2;
+cell4.innerHTML = item3;
+}
+
+//determines which radio button is checked and calls the function to write to the table
+function display(){
+var radios = document.getElementsByName('amount');
+for (var i = 0, length = radios.length; i < length; i++) {
+    if (radios[i].checked) {
+        // do whatever you want with the checked radio
+	   var radioValue = radios[i].value;
+        // only one radio can be logically checked, don't check the rest
+        break;
+    }
+}
+writeToF(radioValue);
+}
+
+//resets the form
+function resetAll(){
+document.getElementById('yourName').value = " ";
+document.getElementById('group1').checked = false;
+document.getElementById('group2').checked = false;
+document.getElementById('group3').checked = false;
+document.getElementById('group4').checked = false;
+entree.style.display = "none"
+sidedish.style.display = "none"
+dessert.style.display = "none"
+supplies.style.display = "none"
+document.getElementById('yourName').focus();
+}
+
+//deletes the last row in the table
+function undo(){
+var fTable = document.getElementById("foodTable");
+var row = fTable.deleteRow(-1);
+}
+
+</script>
+</head>
+<body>
+
+<!-- displays title and info -->
+<h2>Holiday Luncheon Potluck</h2>
+<p id="para1">We've been asked to supply a list of collected items documenting what food have been collected.  Please submit your contribution below.</p>
+
+<!-- displays form for user to interact with -->
+<form name='foodcollection'>
+<p><fieldset><legend>Potluck</legend></p>
+<label>Your Name:</label>
+<input type="text" name="yourName" id="yourName" size="50" />
+<p>Choose your food type:<br />
+
+<!-- radio buttons, only one at a time, for user to click and get a frop down to fill out -->
+<input type="radio" name="amount" id="group1" value="entree" onclick="colorBlock('entree')"/> Entree
+<input type="radio" name="amount" id="group2" value="sidedish" onclick="colorBlock('sidedish')"/> Side Dish
+<input type="radio" name="amount" id="group3" value="dessert" onclick="colorBlock('dessert')"/> Dessert
+<input type="radio" name="amount" id="group4" value="supplies" onclick="colorBlock('supplies')"/> Supplies
+<hr>
+<p>Please provide the following information about your contribution</p>
+<div id='entree' style="display:none">
+<h2>Entrees</h2>
+<p>
+<label>Food</label>
+<input type="text" name="food1" size="50" /><br />
+<label>Servings</label>
+<input type="text" name="servings1" size="50" /><br />
+</p>
+</div>
+<div id='sidedish' style="display:none">
+<h2>Side Dishes</h2>
+<p>
+<label>Food</label>
+<input type="text" name="food2" size="50" /><br />
+<label>Servings</label>
+<input type="text" name="servings2" size="50" /><br />
+</p>
+</div>
+<div id='dessert' style="display:none">
+<h2>Desserts</h2>
+<p>
+<label>Food</label>
+<input type="text" name="food3" size="50" /><br />
+<label>Servings</label>
+<input type="text" name="servings3" size="50" /><br />
+</p>
+</div>
+<div id='supplies' style="display:none">
+<h2>Supplies</h2>
+<p>
+<label>Food</label>
+<input type="text" name="food4" size="50" /><br />
+<label>Servings</label>
+<input type="text" name="servings4" size="50" /><br />
+</p>
+</div>
+
+<!-- user can either submit their form, reset, or delete the last input to the table -->
+<input type='button' value='submit' onclick='display()'>
+<input type='button' value='reset' onclick='resetAll()'>
+<input type='button' value='undo' onclick='undo()'>
+</fieldset>
+</form>
+<p id="food"></p>
+
+<!-- table formatting -->
+<table id='foodTable' border="1" cellpadding="5" cellspacing="0" width="50%">
+<tr><th colspan='5'>Food Collected</th></tr>
+<tr id="r1"><td>Name</td><td>Food</td><td>Serving</td><td>Category</td></tr>
+
+</table>
+
+</body>
+</html>

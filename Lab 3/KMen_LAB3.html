@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #3 -->
+<!-- Kortney Menefee -->
+<!-- 2/08/19 -->
+<title>User Prompts</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Problem 1</h1>
+<script>
+	var age = prompt("How old are you? ", "");
+	if(!(isNaN(parseInt(age))))
+	{
+		if(age >= 21)
+		{
+			var registered = prompt('Are you registered to vote? Enter "yes" or "no" ', "");
+			if(registered == "yes")
+			{
+				document.write("<br /> Don't forget to vote this November!");
+			}
+			else
+			{
+				document.write("<br /> Register to vote this November!");
+			}
+		}
+		else
+		{
+			document.write("<br /> Sorry you're not old enough to vote.");
+		}
+	}
+	else
+	{
+		document.write("<br /> Sorry it needs to be a number: 1,2,3...");
+	}
+</script>
+<h1>Problem 2</h1>
+<script>
+	var temp = parseFloat(prompt("Enter a temperature in Fahrenheit."));
+	var cel = (temp - 32) * 5/9; 
+	document.write("The temperature in Fahrenheit is " + temp + " and the temperature is Celsius is " + cel + ".");
+</script>
+</script>
+<h1>Problem 3</h1>
+<script>
+	document.write("You have have $65 USD.");
+	var money = (65.0 * 31.52);
+	document.write("<br /> In Thai baht you have $" + money + ".");
+</script>
+<h1>Problem 4</h1>
+<script>
+	const PI = 3.14;
+	var diameter = parseFloat(prompt("Enter a diameter of a circle.", ""));
+	var area = (PI/4) * (diameter * diameter);
+	document.write("<br /> The area of a circle with a diameter of " + diameter + " is " + area + ".");
+</script>
+</body>
+</html>

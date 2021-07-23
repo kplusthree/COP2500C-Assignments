@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #9 -->
+<!-- Kortney Menefee -->
+<!-- 4/12/19 -->
+<title>Lab 9 Assignment</title>
+<meta charset="UTF-8">
+<script>
+
+/*
+Make an array to hold all the fortunes
+Make  function to load another fortune
+Make random number to make each fortune random
+Create button to call function
+Load fortune on load of the page
+*/
+
+var fortunes = new Array(10);
+	fortunes[0] = "The early bird gets the worm, but the second mouse gets the cheese.";
+	fortunes[1] = "A person who won't read has no advantage over a person who can't read.";
+	fortunes[2] = "Don't pursue happiness, create it.";
+	fortunes[3] = "Courage is not the absence of fear, it is the conquest of it.";
+	fortunes[4] = "All things are difficult before they are easy.";
+	fortunes[5] = "A ship in harbor is safe, but that's not why ships are built.";
+	fortunes[6] = "The usefulness of a cup is in its emptiness.";
+	fortunes[7] = "He who throws mud loses ground.";
+	fortunes[8] = "To avoid criticism, do nothing, say nothing, be nothing.";
+	fortunes[9] = "Be not afraid of growing slowly, be afraid only of standing still.";
+
+function fortune()
+{
+	var randomNumber = Math.floor(Math.random() * 10);
+	document.getElementById('text').innerHTML = fortunes[randomNumber];
+}
+
+</script>
+</head>
+<body onload="fortune()">
+<p id = 'text'><p/>
+<p><input type="button" value="Get New Fortune" onClick="fortune();"/></p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #10 -->
+<!-- Kortney Menefee -->
+<!-- 4/19/19 -->
+<title>Problem 1</title>
+<meta charset="UTF-8">
+</head>
+
+<!-- heading and style output along with id name = output -->
+<body>
+<h1>Problem 1</h1>
+<style>
+#output {
+	height: 100px; 
+   	width: 200px; 
+   	border: 1px solid black;
+}
+</style>
+
+<!-- division tag and color to demonstrate difference between colors + random text for filler -->
+<div id='output' style="background-color:violet">
+<p>Satoru Iwata (December 6, 1959 - July 11, 2015) was a Japanese video game programmer and businessman.</p>
+</div>
+
+<!-- functions to change division tag background color -->
+<script>
+function changeRed()
+{
+output.style.backgroundColor= "red";
+}
+function changeGreen()
+{   
+output.style.backgroundColor= "green";
+}
+function changeBlue()
+{   
+output.style.backgroundColor= "blue";
+}
+</script>
+
+<!-- buttons to change colors -->
+<input type='button' value='red' onclick='changeRed()'>
+<input type='button' value='green' onclick='changeGreen()'>
+<input type='button' value='blue' onclick='changeBlue()'>
+
+</body>
+</html>

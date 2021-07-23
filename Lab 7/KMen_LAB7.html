@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- LAB #7 -->
+<!-- Kortney Menefee -->
+<!-- 3/20/19 -->
+<title>Lab 7 Assignment</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<h1>Problem 1</h1>
+<script>
+/*
+
+*/
+
+function convertDayOfWeek(day)
+{
+	if(day == 0)
+	{
+		day = "Sunday";
+	}
+	else if(day == 1)
+	{
+		day = "Monday";
+	}
+	else if(day == 2)
+	{
+		day = "Tuesday";
+	}
+	else if(day == 3)
+	{
+		day = "Wednesday";
+	}
+	else if(day == 4)
+	{
+		day = "Thursday";
+	}
+	else if(day == 5)
+	{
+		day = "Friday";
+	}
+	else
+	{
+		day = "Saturday";
+	}
+	return day;
+}
+
+function convertMonth(month)
+{
+	if(month == 0)
+	{
+		month = "January";
+	}
+	else if(month == 1)
+	{
+		month = "February";
+	}
+	else if(month == 2)
+	{
+		month = "March";
+	}
+	else if(month == 3)
+	{
+		month = "April";
+	}
+	else if(month == 4)
+	{
+		month = "May";
+	}
+	else if(month == 5)
+	{
+		month = "June";
+	}
+	else if(month == 6)
+	{
+		month = "July";
+	}
+	else if(month == 7)
+	{
+		month = "August";
+	}
+	else if(month == 8)
+	{
+		month = "September";
+	}
+	else if(month == 9)
+	{
+		month = "October";
+	}
+	else if(month == 10)
+	{
+		month = "November";
+	}
+	else
+	{
+		month = "December";
+	}
+	return month;
+}
+
+var todaysDate = new Date();
+var dayOfWeek = todaysDate.getDay();
+var day = todaysDate.getDate();
+var month = todaysDate.getMonth();
+var year = todaysDate.getFullYear();
+
+var dayOfWeekConverted = convertDayOfWeek(dayOfWeek);
+var monthConverted = convertMonth(month);
+
+document.write("1. Today is " + dayOfWeekConverted + ", " + monthConverted + " " + day + ", " + year + ".<br /><br />");
+
+
+function sevenDays()
+{
+	var i;
+	var dayNames = new Array(7);
+	dayNames[0] = "Sunday";
+	dayNames[1] = "Monday";
+	dayNames[2] = "Tuesday";
+	dayNames[3] = "Wednesday";
+	dayNames[4] = "Thursday";
+	dayNames[5] = "Friday";
+	dayNames[6] = "Saturday";
+
+	document.write("2. Days of the week:<br />");
+
+	for(i=0; i<7; i++)
+	{
+		document.write(dayNames[i] + "<br />");
+	}
+}
+
+function twelveMonths()
+{
+	var i;
+	var monthNames = new Array(12);
+	monthNames[0] = "January";
+	monthNames[1] = "February";
+	monthNames[2] = "March";
+	monthNames[3] = "April";
+	monthNames[4] = "May";
+	monthNames[5] = "June";
+	monthNames[6] = "July";
+	monthNames[7] = "August";
+	monthNames[8] = "September";
+	monthNames[9] = "October";
+	monthNames[10] = "November";
+	monthNames[11] = "December";
+
+	document.write("<br />Months of the Year:<br />");
+
+	for(i=0; i<12; i++)
+	{
+		document.write(monthNames[i] + "<br />");
+	}
+}
+
+var weekDays = todaysDate.prototype = sevenDays();
+var monthsOfYear = todaysDate.prototype = twelveMonths();
+
+
+var today = new Date();
+var todaysDays = today.getFullYear();
+var birthday = new Date("October 19, " + todaysDays);
+var daysTil = birthday.getTime() - today.getTime();
+var daysTilMyBD = Math.floor(daysTil / (1000 * 60 * 60 * 24));
+
+document.write("<br />3. " + daysTilMyBD + " days until my birthday! (October 19th)");
+
+
+var userDate = prompt("Please enter a Month and Date: (EX: December 25)", "");
+var fullUserDate = new Date(userDate + ", " + todaysDays);
+var userDaysTil = fullUserDate.getTime() - today.getTime();
+var userAnswer = Math.floor(userDaysTil / (1000 * 60 * 60 * 24));
+
+document.write("<br /><br />Extra Credit: Days until " + userDate + ": " + userAnswer);
+
+</script>
+<h1>Problem 2</h1>
+<script>
+/*
+
+*/
+
+var radius = parseInt(prompt("Please enter a radius:", ""));
+var area = (Math.PI * (Math.pow(radius, 2)));
+var answer = area.toFixed(2);
+document.write(answer);
+
+</script>
+</body>
+</html>
